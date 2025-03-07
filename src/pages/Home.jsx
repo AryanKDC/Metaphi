@@ -290,9 +290,9 @@ const Home = () => {
                     maxWidth: "1495px",
                     margin: "auto",
                     display: "flex",
-                    flexDirection: { xs: "column", md: "row" },  
+                    flexDirection: { xs: "column", md: "row" },
                     alignItems: "center",
-                    gap: { xs: 4, md: 8 }, 
+                    gap: { xs: 4, md: 8 },
                 }}
             >
                 {/* Left Side - Text Content */}
@@ -377,16 +377,16 @@ const Home = () => {
                 {/* Right Side - Image */}
                 <Box
                     component="img"
-                    src={heroImg} 
+                    src={heroImg}
                     alt="Immersive Future"
                     sx={{
                         flex: 1,
                         width: "100%",
-                        maxWidth: { xs: "100%", md: "50%" }, 
+                        maxWidth: { xs: "100%", md: "50%" },
                         height: "auto",
-                        objectFit: "cover",  
-                        borderRadius: "10px",  
-                        boxShadow: "0px 4px 10px rgba(0,0,0,0.2)",  
+                        objectFit: "cover",
+                        borderRadius: "10px",
+                        boxShadow: "0px 4px 10px rgba(0,0,0,0.2)",
                     }}
                 />
             </Box>
@@ -672,8 +672,8 @@ const Home = () => {
                         {services.map((service, index) => (
                             <motion.div
                                 key={index}
-                                onHoverStart={() => setHoveredIndex(index)}
-                                onHoverEnd={() => setHoveredIndex(null)}
+                                onMouseEnter={() => setHoveredIndex(index)}
+                                onMouseLeave={() => setHoveredIndex(null)}
                                 whileHover={{ scale: 1.05 }}
                                 transition={{ duration: 0.3 }}
                                 style={{
@@ -705,10 +705,10 @@ const Home = () => {
                                         alignItems: "center",
                                         position: "relative",
                                         overflow: "hidden",
-                                        "&:hover": {
-                                            borderColor: "#00C8FF",
-                                            boxShadow: "rgba(0, 200, 255, 0.4) -5px 5px, rgba(0, 255, 150, 0.3) -10px 10px, rgba(0, 200, 255, 0.2) -15px 15px, rgba(0, 255, 150, 0.1) -20px 20px, rgba(0, 200, 255, 0.05) -25px 25px",
-                                        },
+                                        borderColor: hoveredIndex === index ? "#00C8FF" : "transparent",
+                                        boxShadow: hoveredIndex === index
+                                            ? "rgba(0, 200, 255, 0.4) -5px 5px, rgba(0, 255, 150, 0.3) -10px 10px, rgba(0, 200, 255, 0.2) -15px 15px, rgba(0, 255, 150, 0.1) -20px 20px"
+                                            : "none"
                                     }}
                                 >
                                     {/* Overlay */}
@@ -967,8 +967,8 @@ const Home = () => {
                         {industries.map((industry, index) => (
                             <motion.div
                                 key={index}
-                                onHoverStart={() => setHoveredIndex(index)}
-                                onHoverEnd={() => setHoveredIndex(null)}
+                                onMouseEnter={() => setHoveredIndex(index)}
+                                onMouseLeave={() => setHoveredIndex(null)}
                                 whileHover={{ scale: 1.05 }}
                                 transition={{ duration: 0.3 }}
                                 style={{
@@ -1000,10 +1000,10 @@ const Home = () => {
                                         alignItems: "center",
                                         position: "relative",
                                         overflow: "hidden",
-                                        "&:hover": {
-                                            borderColor: "#00C8FF",
-                                            boxShadow: "rgba(0, 200, 255, 0.4) -5px 5px, rgba(0, 255, 150, 0.3) -10px 10px, rgba(0, 200, 255, 0.2) -15px 15px, rgba(0, 255, 150, 0.1) -20px 20px, rgba(0, 200, 255, 0.05) -25px 25px",
-                                        },
+                                        borderColor: hoveredIndex === index ? "#00C8FF" : "transparent",
+                                        boxShadow: hoveredIndex === index
+                                            ? "rgba(0, 200, 255, 0.4) -5px 5px, rgba(0, 255, 150, 0.3) -10px 10px, rgba(0, 200, 255, 0.2) -15px 15px, rgba(0, 255, 150, 0.1) -20px 20px"
+                                            : "none"
                                     }}
                                 >
                                     {/* Overlay */}
