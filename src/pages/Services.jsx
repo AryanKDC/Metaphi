@@ -1,5 +1,5 @@
-import React, { useRef } from 'react';
-import { Box, Typography, Button } from '@mui/material';
+import React, { useState, useRef } from 'react';
+import { Box, Typography, Button, TextField, MenuItem } from '@mui/material';
 import { Link, useParams } from 'react-router-dom';
 import ContactStyledBtn from '../styledbuttons/ContactStyledBn';
 import CountUp from 'react-countup';
@@ -23,6 +23,11 @@ import industries3 from "../images/realestate.svg";
 import industries4 from "../images/manufacturing.svg";
 import industries5 from "../images/retail.svg";
 import industries6 from "../images/finance.svg";
+import { FastField, Formik, Form } from "formik";
+import * as Yup from "yup";
+import StyledButton from "../styledbuttons/StyledButton";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faArrowRight, faEnvelope, faCalendar } from "@fortawesome/free-solid-svg-icons";
 
 const serviceData = {
   web: {
@@ -76,39 +81,6 @@ const serviceData = {
   },
 };
 
-const industries = [
-  {
-    icon: industries1,
-    title: "Education",
-    description: "Transform learning experiences with interactive and immersive technologies",
-  },
-  {
-    icon: industries2,
-    title: "Healthcare",
-    description: "Enhance patient care and medical training through innovative XR solutions",
-  },
-  {
-    icon: industries3,
-    title: "Real Estate",
-    description: "Provide virtual property tours and immersive real estate experiences",
-  },
-  {
-    icon: industries4,
-    title: "Manufacturing",
-    description: "Streamline production and training with industrial XR applications",
-  },
-  {
-    icon: industries5,
-    title: "Retail",
-    description: "Revolutionize shopping with AR-driven retail and virtual showrooms",
-  },
-  {
-    icon: industries6,
-    title: "Finance & Banking",
-    description: "Leverage XR for data visualization, training, and financial simulations",
-  },
-];
-
 const Services = () => {
   const { service } = useParams();
   const data = serviceData[service] || { title: "Not Found", description: "Page not available." };
@@ -138,6 +110,66 @@ const Services = () => {
     },
     // Add more projects here...
   ];
+
+  const industries = [
+    {
+      icon: industries1,
+      title: "Education",
+      description: "Transform learning experiences with interactive and immersive technologies",
+    },
+    {
+      icon: industries2,
+      title: "Healthcare",
+      description: "Enhance patient care and medical training through innovative XR solutions",
+    },
+    {
+      icon: industries3,
+      title: "Real Estate",
+      description: "Provide virtual property tours and immersive real estate experiences",
+    },
+    {
+      icon: industries4,
+      title: "Manufacturing",
+      description: "Streamline production and training with industrial XR applications",
+    },
+    {
+      icon: industries5,
+      title: "Retail",
+      description: "Revolutionize shopping with AR-driven retail and virtual showrooms",
+    },
+    {
+      icon: industries6,
+      title: "Finance & Banking",
+      description: "Leverage XR for data visualization, training, and financial simulations",
+    },
+  ];
+
+  const [hoveredIndex, setHoveredIndex] = useState(null);
+
+  const fadeInUp = {
+    hidden: { opacity: 0, y: 50 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 1.5,  
+        ease: "easeInOut"
+      }
+    },
+  };
+
+  const slideIn = (direction) => ({
+    hidden: { opacity: 0, x: direction === "left" ? -100 : 100 },
+    visible: {
+      opacity: 1,
+      x: 0,
+      transition: {
+        duration: 1.5,  
+        ease: "easeInOut",
+      }
+    },
+  });
+
 
   return (
     <>
@@ -284,9 +316,10 @@ const Services = () => {
             variant="h3"
             sx={{
               px: { xs: 2, sm: 4, md: 8, lg: 12.5 },
+              py:3,
               fontSize: { xs: "24px", sm: "32px", md: "40px", lg: "48px" },
               fontWeight: "bold",
-              textAlign: { xs: "center", md: "left" },
+              textAlign: { xs: "center" },
             }}
           >
             Use Cases
@@ -307,81 +340,98 @@ const Services = () => {
                 borderRadius: 2,
                 gap: { xs: 3, md: 10 },
                 position: "relative",
+                overflow: "hidden"
               }}
             >
               {/* Text Section */}
-              <Box
-                sx={{
-                  flex: 1,
-                  textAlign: { xs: "center", md: "left" },
-                  px: { xs: 2, md: 0 },
-                }}
+              <motion.div
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: false, amount: 0.3 }}
+                variants={fadeInUp}
+                style={{ overflow: "hidden" }}
               >
                 <Box
                   sx={{
-                    width: "50px",
-                    height: "4px",
-                    backgroundColor: "#00C8FF",
-                    mb: 1.5,
-                    mx: { xs: "auto", md: 0 },
-                  }}
-                />
-                <Typography
-                  variant="h4"
-                  sx={{
-                    fontWeight: "bold",
-                    mb: 3,
-                    fontSize: { xs: "24px", sm: "28px", md: "32px", lg: "36px" },
+                    flex: 1,
+                    textAlign: { xs: "center", md: "left" },
+                    px: { xs: 2, md: 0 },
                   }}
                 >
-                  {useCase.title}
-                </Typography>
-                <Typography
-                  variant="body1"
-                  sx={{
-                    lineHeight: 1.8,
-                    fontSize: { xs: "14px", sm: "16px", md: "18px" },
-                  }}
-                >
-                  {useCase.description}
-                </Typography>
-              </Box>
+                  <Box
+                    sx={{
+                      width: "50px",
+                      height: "4px",
+                      backgroundColor: "#00C8FF",
+                      mb: 1.5,
+                      mx: { xs: "auto", md: 0 },
+                    }}
+                  />
+                  <Typography
+                    variant="h4"
+                    sx={{
+                      fontWeight: "bold",
+                      mb: 3,
+                      fontSize: { xs: "24px", sm: "28px", md: "32px", lg: "36px" },
+                    }}
+                  >
+                    {useCase.title}
+                  </Typography>
+                  <Typography
+                    variant="body1"
+                    sx={{
+                      lineHeight: 1.8,
+                      fontSize: { xs: "14px", sm: "16px", md: "18px" },
+                    }}
+                  >
+                    {useCase.description}
+                  </Typography>
+                </Box>
+              </motion.div>
 
-              {/* Image Section with Inverted Fade Effect */}
-              <Box
-                sx={{
-                  position: "relative",
-                  width: { xs: "100%", md: "40%" },
-                  height: "auto",
-                  mt: { xs: 4, md: 0 },
-                  "&::before": {
-                    content: '""',
-                    position: "absolute",
-                    top: 0,
-                    left: index % 2 === 0 ? "0" : "auto",
-                    right: index % 2 === 0 ? "auto" : "0",
-                    width: "14%",
-                    height: "100%",
-                    background: index % 2 === 0
-                      ? "linear-gradient(to right, #242424 0%, rgba(36, 36, 36, 0) 100%)"
-                      : "linear-gradient(to left, #242424 0%, rgba(36, 36, 36, 0) 100%)",
-                    zIndex: 2,
-                  },
-                }}
+              {/* Image Section */}
+              <motion.div
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: false, amount: 0.3 }}
+                variants={slideIn(index % 2 === 0 ? "right" : "left")}
+                style={{ overflow: "hidden" }}
               >
                 <Box
-                  component="img"
-                  src={useCase.image}
-                  alt={useCase.title}
                   sx={{
-                    width: "100%",
-                    height: "auto",
-                    display: "block",
                     position: "relative",
-                    zIndex: 1,
+                    width: { xs: "100%", md: "100%" },
+                    height: "auto",
+                    mt: { xs: 4, md: 0 },
+                    "&::before": {
+                      content: '""',
+                      position: "absolute",
+                      top: 0,
+                      left: index % 2 === 0 ? "0" : "auto",
+                      right: index % 2 === 0 ? "auto" : "0",
+                      width: "14%",
+                      height: "100%",
+                      background: index % 2 === 0
+                        ? "linear-gradient(to right, #242424 0%, rgba(36, 36, 36, 0) 100%)"
+                        : "linear-gradient(to left, #242424 0%, rgba(36, 36, 36, 0) 100%)",
+                      zIndex: 2,
+                    },
                   }}
-                />
-              </Box>
+                >
+                  <Box
+                    component="img"
+                    src={useCase.image}
+                    alt={useCase.title}
+                    sx={{
+                      width: "100%",
+                      height: "auto",
+                      display: "block",
+                      position: "relative",
+                      zIndex: 1,
+                    }}
+                  />
+                </Box>
+              </motion.div>
             </Box>
           ))}
         </Box>
@@ -431,7 +481,7 @@ const Services = () => {
         </Box>
       </Box>
 
-      {/* contact */}
+      {/* get in touch */}
       <Box
         sx={{
           color: "white",
@@ -479,21 +529,24 @@ const Services = () => {
         </Button>
       </Box>
 
-
-
       {/* projects */}
       <Box sx={{ backgroundColor: "#121212", py: 6, px: { xs: 2, sm: 4, md: 6 }, position: "relative" }}>
+        <Box sx={{px: 6, py: 3}}>
+          <Typography variant='h4'>
+          Check Our Projects 
+          </Typography>
+        </Box>
         <Swiper
           modules={[Navigation]}
           spaceBetween={20}
-          slidesPerView={1} // Default: 1 slide for small screens
+          slidesPerView={1}
           loop={true}
           navigation={{
             prevEl: ".prev-button",
             nextEl: ".next-button",
           }}
           breakpoints={{
-            768: { slidesPerView: 2 }, // Show 2 slides on medium+ screens
+            768: { slidesPerView: 2 },
           }}
           style={{ maxWidth: "1200px", margin: "auto", overflow: "hidden" }}
         >
@@ -589,9 +642,405 @@ const Services = () => {
         </Box>
       </Box>
 
+      {/* Industries */}
+
+      <Box sx={{ backgroundColor: "#121212" }}>
+        <Box sx={{ paddingTop: 15 }}>
+          <Typography
+            className=""
+            variant="h3"
+            textAlign="center"
+            sx={{
+              fontSize: { xs: 23, sm: 28, md: 32 },
+              py: 1,
+              fontWeight: 600
+            }}
+          >
+            Revolutionizing Industries
+          </Typography>
+
+          <Typography
+            variant="h5"
+            textAlign="center"
+            sx={{
+              fontSize: { xs: 13, sm: 19, md: 22 },
+              py: 2,
+              fontWeight: 400
+            }}
+          >
+            How Metaphi is Driving Innovation Across Industries
+          </Typography>
+        </Box>
+
+        <Box sx={{ display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center", py: 4 }}>
+          <Box
+            sx={{
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+              flexWrap: "wrap",
+              gap: { xs: 2, md: 4 },
+              width: "100%",
+              textAlign: "center",
+            }}
+          >
+            {industries.map((industry, index) => (
+              <motion.div
+                key={index}
+                onMouseEnter={() => setHoveredIndex(index)}
+                onMouseLeave={() => setHoveredIndex(null)}
+                whileHover={{ scale: 1.05 }}
+                transition={{ duration: 0.3 }}
+                style={{
+                  width: "100%",
+                  maxWidth: "400px",
+                  display: "flex",
+                  justifyContent: "center",
+                  flexBasis: "100%",
+                  padding: "20px"
+                }}
+              >
+                <Box
+                  sx={{
+                    backgroundColor: "#181818",
+                    border: "2px solid transparent",
+                    borderRadius: "12px",
+                    padding: { xs: "40px", sm: "40px" },
+                    width: "100%",
+                    maxWidth: "350px",
+                    minHeight: "200px",
+                    maxHeight: "260px",
+                    height: { xs: "200px", md: "260px" },
+                    textAlign: "center",
+                    transition: "all 0.4s ease-in-out",
+                    cursor: "pointer",
+                    display: "flex",
+                    flexDirection: "column",
+                    justifyContent: "center",
+                    alignItems: "center",
+                    position: "relative",
+                    overflow: "hidden",
+                    borderColor: hoveredIndex === index ? "#00C8FF" : "transparent",
+                    boxShadow: hoveredIndex === index
+                      ? "rgba(0, 200, 255, 0.4) -5px 5px, rgba(0, 255, 150, 0.3) -10px 10px, rgba(0, 200, 255, 0.2) -15px 15px, rgba(0, 255, 150, 0.1) -20px 20px"
+                      : "none"
+                  }}
+                >
+                  {/* Overlay */}
+                  <Box
+                    sx={{
+                      position: "absolute",
+                      top: -100,
+                      right: -200,
+                      width: hoveredIndex === index ? "900px" : "0%",
+                      height: hoveredIndex === index ? "900px" : "0%",
+                      background: "linear-gradient(135deg, #027899 0%, #1E3A5F 100%)",
+                      transition: "width 0.9s ease-in-out, height 0.9s ease-in-out",
+                      zIndex: 1,
+                      borderRadius: "50%"
+                    }}
+                  />
+                  <motion.div
+                    animate={{
+                      right: hoveredIndex === index ? "50%" : "10%",
+                      transform: hoveredIndex === index ? "translateX(50%)" : "none",
+                    }}
+                    transition={{ duration: 0.4, ease: "easeOut" }}
+                    style={{
+                      position: "absolute",
+                      top: window.innerWidth < 899 ? "14%" : "19%",
+                      left: window.innerWidth < 899 ? "10%" : "20%",
+                      transform: "translateX(-50%, -50%)",
+                      width: "auto",
+                      zIndex: 3,
+                      pointerEvents: "none"
+                    }}
+                  >
+                    <Box
+                      sx={{
+                        width: { xs: 45, md: 50 },
+                        height: { xs: 45, md: 50 },
+                        backgroundColor: "#1E3A5F",
+                        display: "flex",
+                        alignItems: "center",
+                        justifyContent: "center",
+                        borderRadius: "10px 0",
+                        mx: "auto",
+                        mb: 2,
+                        boxShadow: "rgba(13, 118, 147, 0.4) -2px 2px, rgba(236, 236, 236, 0.3) -1px 1px"
+                      }}
+                    />
+                  </motion.div>
+
+                  {/* Icon */}
+                  <Box sx={{ zIndex: 1000, display: "flex", justifyContent: "center", pointerEvents: "none" }}>
+                    <img
+                      src={industry.icon}
+                      alt={`${industry.title} icon`}
+                      style={{ width: 35, height: 35 }}
+                    />
+                  </Box>
+
+                  {/* Title */}
+                  <Typography sx={{ fontSize: { xs: "18px", md: "20px" }, fontWeight: "bold", color: "white", paddingTop: 2, zIndex: 2, pointerEvents: "none", minHeight: "50px", display: "flex", alignItems: "center", justifyContent: "center", textAlign: "center" }}>
+                    {industry.title}
+                  </Typography>
+
+                  {/* Description */}
+                  <Typography sx={{ fontSize: { xs: "12px", md: "14px" }, color: "white", mt: 1, zIndex: 2, pointerEvents: "none", textAlign: "center", minHeight: "40px", display: "flex", alignItems: "center", justifyContent: "center" }}>
+                    {industry.description}
+                  </Typography>
+                  <Button
+                    disableRipple
+                    sx={{
+                      color: "white",
+                      mt: 1,
+                      zIndex: 2,
+                      opacity: { md: `${hoveredIndex === index ? 1 : 0}` },
+                      transition: "opacity 0.3s ease-in-out",
+                      backgroundColor: "transparent",
+                      "&:hover": {
+                        backgroundColor: "transparent",
+                      },
+                    }}
+
+                    variant="text"
+                  >
+                    Learn more <FontAwesomeIcon style={{ marginLeft: "10px" }} icon={faArrowRight} />
+                  </Button>
+                </Box>
+              </motion.div>
+            ))}
+
+          </Box>
+          <p style={{ padding: 20 }}></p>
+          <Link style={{ textDecoration: "none" }} to={'/about'}>
+            <StyledButton />
+          </Link>
+        </Box>
+      </Box>
 
 
+      {/* Contact us */}
+      <Box sx={{ py: 7 }}></Box>
+      <Box
+        sx={{
+          display: "flex",
+          flexDirection: { xs: "column", md: "row" },
+          flexWrap: "wrap",
+          py: 6,
+          px: { xs: 2, md: 12, lg: 12, xl: 14 },
+          gap: { xs: 4, md: 6 },
+        }}
+      >
+        {/* Left Side - Contact Info */}
+        <Box sx={{ flex: 1, minWidth: "200px", color: "white", textAlign: { xs: "center", md: "left" } }}>
+          <Typography variant="h4" fontWeight="bold">
+            Got An <span className="gradientS">Idea?</span>
+          </Typography>
+          <Typography variant="h4" fontWeight="bold" sx={{ mt: -1 }}>
+            Make It Reality.
+          </Typography>
+          <Typography sx={{ mt: 2, color: "#AAAAAA" }}>
+            Tell us a little about your project and we’ll connect with you within 24 hours.
+          </Typography>
 
+          {/* Contact Info */}
+          <Box sx={{ display: "flex", alignItems: "center", mt: 4, justifyContent: { xs: "center", md: "flex-start" } }}>
+            <Box sx={{ width: 50, height: 50, backgroundColor: "#0E2A3A", display: "flex", justifyContent: "center", alignItems: "center", borderRadius: 2 }}>
+              <FontAwesomeIcon icon={faEnvelope} color="#00C8FF" size="lg" />
+            </Box>
+            <Box sx={{ ml: 2 }}>
+              <Typography variant="body2" sx={{ color: "#AAAAAA" }}>Email</Typography>
+              <Typography variant="body1" fontWeight="bold">contact@test.com</Typography>
+            </Box>
+          </Box>
+
+          <Box sx={{ display: "flex", alignItems: "center", mt: 3, justifyContent: { xs: "center", md: "flex-start" } }}>
+            <Box sx={{ width: 50, height: 50, backgroundColor: "#0E2A3A", display: "flex", justifyContent: "center", alignItems: "center", borderRadius: 2 }}>
+              <FontAwesomeIcon icon={faCalendar} color="#00C8FF" size="lg" />
+            </Box>
+            <Box sx={{ ml: 2 }}>
+              <Typography variant="body2" sx={{ color: "#AAAAAA" }}>Schedule a Call with our team</Typography>
+              <Typography variant="body1" fontWeight="bold">Free Consultation</Typography>
+            </Box>
+          </Box>
+        </Box>
+
+        {/* Right Side - Contact Form */}
+        <Formik
+          initialValues={{
+            email: "",
+            jobTitle: "",
+            service: "",
+            budget: "",
+            message: "",
+          }}
+          validationSchema={Yup.object({
+            email: Yup.string().email("Invalid email").required("Email is required"),
+            jobTitle: Yup.string().required("Job title is required"),
+            service: Yup.string().required("Please select a service"),
+            budget: Yup.string().required("Please select a budget"),
+            message: Yup.string().required("Message is required"),
+          })}
+          onSubmit={(values, { setSubmitting }) => {
+            console.log("Form Data:", values);
+            alert("Message Sent Successfully!");
+            setSubmitting(false);
+          }}
+        >
+          {({ handleSubmit }) => (
+            <Box component={Form} onSubmit={handleSubmit} sx={{ flex: 1, minWidth: "200px", backgroundColor: "#111", p: 4, borderRadius: 2 }}>
+              {/* Email */}
+              <FastField name="email">
+                {({ field, meta }) => (
+                  <TextField
+                    {...field}
+                    fullWidth
+                    label="Email*"
+                    variant="outlined"
+                    error={meta.touched && Boolean(meta.error)}
+                    helperText={meta.touched && meta.error}
+                    sx={{
+                      backgroundColor: "#222",
+                      borderRadius: 1,
+                      input: { color: "white" },
+                      label: { color: "white" },
+                      mb: 2,
+                    }}
+                  />
+                )}
+              </FastField>
+
+              {/* Job Title */}
+              <FastField name="jobTitle">
+                {({ field, meta }) => (
+                  <TextField
+                    {...field}
+                    fullWidth
+                    label="Job Title*"
+                    variant="outlined"
+                    error={meta.touched && Boolean(meta.error)}
+                    helperText={meta.touched && meta.error}
+                    sx={{
+                      backgroundColor: "#222",
+                      borderRadius: 1,
+                      input: { color: "white" },
+                      label: { color: "white" },
+                      mb: 2,
+                    }}
+                  />
+                )}
+              </FastField>
+
+              {/* Service Dropdown */}
+              <FastField name="service">
+                {({ field, meta }) => (
+                  <TextField
+                    {...field}
+                    fullWidth
+                    select
+                    label="Service*"
+                    variant="outlined"
+                    error={meta.touched && Boolean(meta.error)}
+                    helperText={meta.touched && meta.error}
+                    sx={{
+                      backgroundColor: "#222",
+                      borderRadius: 1,
+                      mb: 2,
+                      "& .MuiInputBase-input": { color: "white" },
+                      "& .MuiInputLabel-root": { color: "white" },
+                      "& .MuiOutlinedInput-root": {
+                        "&:hover fieldset": { borderColor: "#ccc" },
+                        "&.Mui-focused fieldset": { borderColor: "#fff" },
+                      },
+                      "& .MuiSelect-select": { color: "white" },
+                    }}
+                  >
+                    <MenuItem value="Business Solution">Business Solution</MenuItem>
+                    <MenuItem value="Software Development">Software Development</MenuItem>
+                    <MenuItem value="Consulting">Consulting</MenuItem>
+                  </TextField>
+                )}
+              </FastField>
+
+              {/* Budget Dropdown */}
+              <FastField name="budget">
+                {({ field, meta }) => (
+                  <TextField
+                    {...field}
+                    fullWidth
+                    select
+                    label="Budget*"
+                    variant="outlined"
+                    error={meta.touched && Boolean(meta.error)}
+                    helperText={meta.touched && meta.error}
+                    sx={{
+                      backgroundColor: "#222",
+                      borderRadius: 1,
+                      mb: 2,
+                      "& .MuiInputBase-input": { color: "white" },
+                      "& .MuiInputLabel-root": { color: "white" },
+                      "& .MuiOutlinedInput-root": {
+                        "&:hover fieldset": { borderColor: "#ccc" },
+                        "&.Mui-focused fieldset": { borderColor: "#fff" },
+                      },
+                      "& .MuiSelect-select": { color: "white" },
+                    }}
+                  >
+                    <MenuItem value="$0-$7k">$0-$7k</MenuItem>
+                    <MenuItem value="$7k-$20k">$7k-$20k</MenuItem>
+                    <MenuItem value="$20k+">$20k+</MenuItem>
+                  </TextField>
+                )}
+              </FastField>
+
+              {/* Message */}
+              <FastField name="message">
+                {({ field, meta }) => (
+                  <TextField
+                    {...field}
+                    fullWidth
+                    label="Message*"
+                    variant="outlined"
+                    multiline
+                    rows={4}
+                    error={meta.touched && Boolean(meta.error)}
+                    helperText={meta.touched && meta.error}
+                    sx={{
+                      backgroundColor: "#222",
+                      borderRadius: 1,
+                      mb: 2,
+                      "& .MuiInputBase-input": { color: "white" },
+                      "& .MuiInputLabel-root": { color: "white" },
+                      "& .MuiOutlinedInput-root": {
+                        "&:hover fieldset": { borderColor: "#ccc" },
+                        "&.Mui-focused fieldset": { borderColor: "#fff" },
+                      },
+                      "& .MuiSelect-select": { color: "white" },
+                    }}
+                  />
+                )}
+              </FastField>
+
+              {/* Submit Button */}
+              <Button
+                type="submit"
+                fullWidth
+                sx={{
+                  backgroundColor: "#00C8FF",
+                  color: "white",
+                  fontWeight: "bold",
+                  p: 1.5,
+                  "&:hover": { backgroundColor: "#0099CC" },
+                }}
+              >
+                Send Message
+              </Button>
+            </Box>
+          )}
+        </Formik>
+      </Box>
 
     </>
   );
