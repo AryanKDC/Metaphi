@@ -152,7 +152,7 @@ const Services = () => {
       opacity: 1,
       y: 0,
       transition: {
-        duration: 1.5,  
+        duration: 1.5,
         ease: "easeInOut"
       }
     },
@@ -164,7 +164,7 @@ const Services = () => {
       opacity: 1,
       x: 0,
       transition: {
-        duration: 1.5,  
+        duration: 1.5,
         ease: "easeInOut",
       }
     },
@@ -316,7 +316,7 @@ const Services = () => {
             variant="h3"
             sx={{
               px: { xs: 2, sm: 4, md: 8, lg: 12.5 },
-              py:3,
+              py: 3,
               fontSize: { xs: "24px", sm: "32px", md: "40px", lg: "48px" },
               fontWeight: "bold",
               textAlign: { xs: "center" },
@@ -327,112 +327,115 @@ const Services = () => {
 
           {data.useCases.map((useCase, index) => (
             <Box
-              key={index}
-              sx={{
-                display: "flex",
-                flexDirection: { xs: "column", md: index % 2 === 0 ? "row" : "row-reverse" },
-                alignItems: "center",
-                justifyContent: "space-between",
-                maxWidth: "1325px",
-                mx: "auto",
-                p: { xs: 4, md: 6 },
-                my: 8,
-                borderRadius: 2,
-                gap: { xs: 3, md: 10 },
-                position: "relative",
-                overflow: "hidden"
-              }}
+            key={index}
+            sx={{
+              display: "flex",
+              flexDirection: { xs: "column", md: index % 2 === 0 ? "row" : "row-reverse" },
+              alignItems: "center",
+              justifyContent: "space-between",
+              maxWidth: "1485px",
+              mx: "auto",
+              p: { xs: 4, md: 10.5, lg: 12, xl: 12 },
+              my: 8,
+              borderRadius: 2,
+              gap: { xs: 3, md: 10 },
+              position: "relative",
+              overflow: "hidden"
+            }}
+          >
+            {/* Text Section */}
+            <motion.div
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: false, amount: 0.3 }}
+              variants={fadeInUp}
+              style={{ overflow: "hidden" }}
             >
-              {/* Text Section */}
-              <motion.div
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: false, amount: 0.3 }}
-                variants={fadeInUp}
-                style={{ overflow: "hidden" }}
+              <Box
+                sx={{
+                  flex: 1,
+                  textAlign: { xs: "center", md: "left" },
+                  px: { xs: 2, md: 0 },
+                }}
               >
                 <Box
                   sx={{
-                    flex: 1,
-                    textAlign: { xs: "center", md: "left" },
-                    px: { xs: 2, md: 0 },
+                    width: "50px",
+                    height: "4px",
+                    backgroundColor: "#00C8FF",
+                    mb: 1.5,
+                    mx: { xs: "auto", md: 0 },
+                  }}
+                />
+                <Typography
+                  variant="h4"
+                  sx={{
+                    fontWeight: "bold",
+                    mb: 3,
+                    fontSize: { xs: "24px", sm: "28px", md: "32px", lg: "36px" },
                   }}
                 >
-                  <Box
-                    sx={{
-                      width: "50px",
-                      height: "4px",
-                      backgroundColor: "#00C8FF",
-                      mb: 1.5,
-                      mx: { xs: "auto", md: 0 },
-                    }}
-                  />
-                  <Typography
-                    variant="h4"
-                    sx={{
-                      fontWeight: "bold",
-                      mb: 3,
-                      fontSize: { xs: "24px", sm: "28px", md: "32px", lg: "36px" },
-                    }}
-                  >
-                    {useCase.title}
-                  </Typography>
-                  <Typography
-                    variant="body1"
-                    sx={{
-                      lineHeight: 1.8,
-                      fontSize: { xs: "14px", sm: "16px", md: "18px" },
-                    }}
-                  >
-                    {useCase.description}
-                  </Typography>
-                </Box>
-              </motion.div>
+                  {useCase.title}
+                </Typography>
+                <Typography
+                  variant="body1"
+                  sx={{
+                    lineHeight: 1.8,
+                    fontSize: { xs: "14px", sm: "16px", md: "18px" },
+                  }}
+                >
+                  {useCase.description}
+                </Typography>
+              </Box>
+            </motion.div>
 
-              {/* Image Section */}
-              <motion.div
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: false, amount: 0.3 }}
-                variants={slideIn(index % 2 === 0 ? "right" : "left")}
-                style={{ overflow: "hidden" }}
+            {/* Image Section */}
+            <motion.div
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: false, amount: 0.3 }}
+              variants={slideIn(index % 2 === 0 ? "right" : "left")}
+              style={{ overflow: "hidden" }}
+            >
+              <Box
+                sx={{
+                  position: "relative",
+                  width: { xs: "100%", md: "100%" },
+                  height: "auto",
+                  mt: { xs: 4, md: 0 },
+                  "&::before": {
+                    content: '""',
+                    position: "absolute",
+                    top: 0,
+                    left: index % 2 === 0 ? "0" : "auto",
+                    right: index % 2 === 0 ? "auto" : "0",
+                    width: "14%",
+                    height: "100%",
+                    background: index % 2 === 0
+                      ? "linear-gradient(to right, #242424 0%, rgba(36, 36, 36, 0) 100%)"
+                      : "linear-gradient(to left, #242424 0%, rgba(36, 36, 36, 0) 100%)",
+                    zIndex: 2,
+                  },
+                }}
               >
                 <Box
+                  component="img"
+                  src={useCase.image}
+                  alt={useCase.title}
                   sx={{
+                    width: "100%", 
+                    height: "auto", 
+                    objectFit: "cover", 
+                    display: "block",
                     position: "relative",
-                    width: { xs: "100%", md: "100%" },
-                    height: "auto",
-                    mt: { xs: 4, md: 0 },
-                    "&::before": {
-                      content: '""',
-                      position: "absolute",
-                      top: 0,
-                      left: index % 2 === 0 ? "0" : "auto",
-                      right: index % 2 === 0 ? "auto" : "0",
-                      width: "14%",
-                      height: "100%",
-                      background: index % 2 === 0
-                        ? "linear-gradient(to right, #242424 0%, rgba(36, 36, 36, 0) 100%)"
-                        : "linear-gradient(to left, #242424 0%, rgba(36, 36, 36, 0) 100%)",
-                      zIndex: 2,
-                    },
+                    zIndex: 1,
                   }}
-                >
-                  <Box
-                    component="img"
-                    src={useCase.image}
-                    alt={useCase.title}
-                    sx={{
-                      width: "100%",
-                      height: "auto",
-                      display: "block",
-                      position: "relative",
-                      zIndex: 1,
-                    }}
-                  />
-                </Box>
-              </motion.div>
-            </Box>
+                />
+
+              </Box>
+            </motion.div>
+          </Box>
+
           ))}
         </Box>
 
@@ -531,9 +534,9 @@ const Services = () => {
 
       {/* projects */}
       <Box sx={{ backgroundColor: "#121212", py: 6, px: { xs: 2, sm: 4, md: 6 }, position: "relative" }}>
-        <Box sx={{px: 6, py: 3}}>
+        <Box sx={{ px: 6, py: 3 }}>
           <Typography variant='h4'>
-          Check Our Projects 
+            Check Our Projects
           </Typography>
         </Box>
         <Swiper
