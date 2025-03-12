@@ -12,7 +12,7 @@ const pages = ["About", "Services", "Industries", "Projects", "Resources", "Cont
 const subLinks = {
 
     About: [{ name: "Company Overview", path: "/about/overview" }, { name: "Mission & Vision", path: "/about/missionvision" }, { name: "Our Team", path: "/about/team" }, { name: "Careers", path: "/about/careers" }],
-    Services: [{ name: "Web Development", path: "/services/web" }, { name: "App Development", path: "/services/mobile" }, { name: "Virtual Reality", path: "/services/vrdev" }, { name: "Augmented Reality", path: "/services/ardev" }, { name: "3D Modeling & Animation", path: "/services/animation" }, { name: "Intelligent XR Solution", path: "/services/xrsolutions" }, { name: "WebAR & WebXR Development", path: "/services/webarxrdev" }, { name: "More", path: "/services" }],
+    Services: [{ name: "Web & CMS Development", path: "/services/web" }, { name: "Mobile App Development", path: "/services/mobile" }, { name: "E-commerce Development", path: "/services/ecommerce" }, { name: "DevOps Services", path: "/services/devops" }, { name: "Blockchain Development", path: "/services/blockchaindev" }, { name: "Salesforce Solutions", path: "/services/sfsolutions" }, { name: "AI & Machine Learning", path: "/services/aiml" }, { name: "IoT & Embedded Systems", path: "/services/iot" }, { name: "Game Development", path: "/services/gamedev" }],
     Industries: [{ name: "Education", path: "/industries/education" }, { name: "Healthcare", path: "/industries/healthcare" }, { name: "Real Estate", path: "/industries/realestate" }, { name: "Manufacturing", path: "/industries/manufacturing" }, { name: "Retail", path: "/industries/retail" }, { name: "Finance & Banking", path: "/financebanking" }, { name: "More", path: "/industries" },],
     Projects: [{ name: "Case Studies", path: "/projects/case studies" }, { name: "Project Testimonials", path: "/projects/testimonials" }],
     Resources: [{ name: "Research Articles", path: "/resources/research-articles" }, { name: "Tech News", path: "/blog/tech-news" }, { name: "Blogs", path: "/resources/blogs" }]
@@ -53,7 +53,7 @@ const Navbar = () => {
 
     return (
         <>
-            <AppBar position="sticky" sx={{ backgroundColor: "#242424", px: { sm: "30px", md: "60px", lg: "70px" } }}>
+            <AppBar position="sticky" sx={{ backgroundColor: "#242424", px: { sm: "30px", md: "60px", lg: "70px", xl: "167px" }, top:-1 }}>
                 <Container maxWidth="xl">
                     <Toolbar disableGutters sx={{ justifyContent: "space-between" }}>
                         {/* Logo */}
@@ -125,42 +125,43 @@ const Navbar = () => {
                                                         borderRadius: "8px",
                                                         boxShadow: 3,
                                                         zIndex: 10,
-                                                        minWidth: "200px",
+                                                        minWidth: "260px",
                                                         mt: 1,
                                                     }}
                                                 >
                                                     {subLinks[page].map((subLink, index) => (
-                                                        <NavLink
-                                                            key={index}
-                                                            to={subLink.path}
-                                                            className={
-                                                                location.pathname === subLink.path || hoveredSublink === index
-                                                                    ? "gradientS"
-                                                                    : ""
-                                                            }
-                                                            onMouseEnter={() => setHoveredSublink(index)}
-                                                            onMouseLeave={() => setHoveredSublink(null)}
-                                                            style={{
-                                                                textDecoration: "none",
-                                                                display: "flex",
-                                                                alignItems: "center",
-                                                                gap: "10px",
-                                                                padding: "8px 12px",
-                                                                borderRadius: "5px",
-                                                                color:
+                                                        <React.Fragment key={index}>
+                                                            <NavLink
+                                                                to={subLink.path}
+                                                                className={
                                                                     location.pathname === subLink.path || hoveredSublink === index
-                                                                        ? "inherit"
-                                                                        : "white",
-                                                                fontWeight: "400",
-                                                                boxShadow:
-                                                                    hoveredSublink === index ? "0 0 0 2px #00C853 inset" : "none",
-                                                            }}
-                                                        >
-                                                            {subLink.icon}
-                                                            <span>{subLink.name}</span>
-                                                        </NavLink>
+                                                                        ? "gradientS"
+                                                                        : ""
+                                                                }
+                                                                onMouseEnter={() => setHoveredSublink(index)}
+                                                                onMouseLeave={() => setHoveredSublink(null)}
+                                                                style={{
+                                                                    textDecoration: "none",
+                                                                    display: "flex",
+                                                                    alignItems: "center",
+                                                                    gap: "10px",
+                                                                    padding: "8px 12px",
+                                                                    borderRadius: "5px",
+                                                                    color:
+                                                                        location.pathname === subLink.path || hoveredSublink === index
+                                                                            ? "inherit"
+                                                                            : "white",
+                                                                    fontWeight: "400",
+                                                                    boxShadow:
+                                                                        hoveredSublink === index ? "0 0 0 2px #00C853 inset" : "none",
+                                                                }}
+                                                            >
+                                                                {subLink.icon}
+                                                                <span>{subLink.name}</span>
+                                                            </NavLink>
+                                                            {index !== subLinks[page].length - 1 && <Divider sx={{ backgroundColor: "rgba(255, 255, 255, 0.2)" }} />}
+                                                        </React.Fragment>
                                                     ))}
-
                                                 </Box>
 
                                             )}
@@ -212,7 +213,7 @@ const Navbar = () => {
 
                         {/* Mobile Menu Button */}
                         <Box sx={{ display: { xs: "flex", md: "none" } }}>
-                            <IconButton size="large" color="inherit" onClick={handleDrawerToggle}>
+                            <IconButton size="large" color="inherit" onClick={handleDrawerToggle} sx={{ pr: 0 }}>
                                 <MenuIcon />
                             </IconButton>
                         </Box>
@@ -225,8 +226,14 @@ const Navbar = () => {
                 anchor="left"
                 open={mobileOpen}
                 onClose={handleCloseDrawer}
-                PaperProps={{
-                    sx: { width: 250, height: "100vh", backgroundColor: "#242424", color: "white", overflowY: "auto" },
+                sx={{
+                    "& .MuiDrawer-paper": {
+                        width: 250,
+                        height: "100vh",
+                        backgroundColor: "#242424",
+                        color: "white",
+                        overflowY: "auto",
+                    },
                 }}
             >
                 <Box sx={{ width: "100%", height: "100%", display: "flex", flexDirection: "column" }}>
@@ -284,33 +291,39 @@ const Navbar = () => {
                                 {subLinks[page] && (
                                     <Collapse in={openDropdown === page} timeout="auto" unmountOnExit>
                                         <List component="div" disablePadding>
-                                            {subLinks[page].map((subLink) => (
-                                                <ListItem
-                                                    button
-                                                    key={subLink.path}
-                                                    component={NavLink}
-                                                    to={subLink.path}
-                                                    onClick={handleCloseDrawer}
-                                                    sx={({ isActive }) => ({
-                                                        pl: 4,
-                                                        color: "white",
-                                                        "&.active .MuiListItemText-root": {
-                                                            background: "rgba(0, 0, 0, 0.4)",
-                                                            padding: "6px 10px",
-                                                            borderRadius: "5px",
-                                                            display: "inline-block",
-                                                        },
-                                                        "&.active .MuiTypography-root": {
-                                                            background: "#00C853",
-                                                            WebkitBackgroundClip: "text",
-                                                            WebkitTextFillColor: "transparent",
-                                                            fontWeight: "bold",
-                                                        },
-                                                        transition: "all 0.3s ease-in-out",
-                                                    })}
-                                                >
-                                                    <ListItemText primary={subLink.name} />
-                                                </ListItem>
+                                            {subLinks[page].map((subLink, subIndex) => (
+                                                <React.Fragment key={subLink.path}>
+                                                    <ListItem
+                                                        button
+                                                        component={NavLink}
+                                                        to={subLink.path}
+                                                        onClick={handleCloseDrawer}
+                                                        sx={({ isActive }) => ({
+                                                            pl: 4,
+                                                            color: "white",
+                                                            "&.active .MuiListItemText-root": {
+                                                                background: "rgba(0, 0, 0, 0.4)",
+                                                                padding: "6px 10px",
+                                                                borderRadius: "5px",
+                                                                display: "inline-block",
+                                                            },
+                                                            "&.active .MuiTypography-root": {
+                                                                background: "#00C853",
+                                                                WebkitBackgroundClip: "text",
+                                                                WebkitTextFillColor: "transparent",
+                                                                fontWeight: "bold",
+                                                            },
+                                                            transition: "all 0.3s ease-in-out",
+                                                        })}
+                                                    >
+                                                        <ListItemText primary={subLink.name} />
+                                                    </ListItem>
+
+                                                    {/* Divider between sublinks (except the last one) */}
+                                                    {subIndex < subLinks[page].length - 1 && (
+                                                        <Divider sx={{ backgroundColor: "rgba(255, 255, 255, 0.1)", ml: 4, mr: 2 }} />
+                                                    )}
+                                                </React.Fragment>
                                             ))}
                                         </List>
                                     </Collapse>
@@ -320,8 +333,6 @@ const Navbar = () => {
                     </List>
                 </Box>
             </Drawer>
-
-
         </>
     );
 };
