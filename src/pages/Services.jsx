@@ -66,19 +66,245 @@ const serviceData = {
   },
 
   mobile: {
-    heroImg: "https://example.com/education.jpg",
-    title: "Education Industry",
-    subTitle: "Transform learning with technology",
-    description:
-      "Empower students with innovative tools for immersive learning experiences.",
+    heroImg: "https://via.placeholder.com/1200x600", // Placeholder image
+    title: "Web & CMS Development",
+    subTitle: "Custom Websites & Content Management Solutions",
+    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam.",
+    statsHeader: "The Impact of Web & CMS Solutions",
+    statsText: [
+      { value: 35, label: "Lorem ipsum dolor sit amet" },
+      { value: 40, label: "Consectetur adipiscing elit" },
+      { value: 25, label: "Integer nec odio. Praesent libero" },
+    ],
+    useCases: [
+      {
+        title: "Scalable E-commerce Platform",
+        description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam.",
+        image: "https://via.placeholder.com/600x400", // Placeholder image
+      },
+      {
+        title: "Corporate Workflow Automation",
+        description: "Suspendisse potenti. Ut fringilla. Suspendisse potenti. Fusce ac felis sit amet ligula pharetra condimentum.",
+        image: "https://via.placeholder.com/600x400", // Placeholder image
+      },
+      {
+        title: "SEO-Optimized Content Platform",
+        description: "Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim.",
+        image: "https://via.placeholder.com/600x400", // Placeholder image
+      },
+    ],
   },
-  vrdev: {
-    heroImg: "https://example.com/finance.jpg",
-    title: "Finance Industry",
-    subTitle: "Secure and scalable financial solutions",
-    description:
-      "Enhance financial services with cutting-edge technology and data security.",
+
+  ecommerce: {
+    heroImg: "https://via.placeholder.com/1200x600", // Placeholder image
+    title: "Web & CMS Development",
+    subTitle: "Custom Websites & Content Management Solutions",
+    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam.",
+    statsHeader: "The Impact of Web & CMS Solutions",
+    statsText: [
+      { value: 35, label: "Lorem ipsum dolor sit amet" },
+      { value: 40, label: "Consectetur adipiscing elit" },
+      { value: 25, label: "Integer nec odio. Praesent libero" },
+    ],
+    useCases: [
+      {
+        title: "Scalable E-commerce Platform",
+        description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam.",
+        image: "https://via.placeholder.com/600x400", // Placeholder image
+      },
+      {
+        title: "Corporate Workflow Automation",
+        description: "Suspendisse potenti. Ut fringilla. Suspendisse potenti. Fusce ac felis sit amet ligula pharetra condimentum.",
+        image: "https://via.placeholder.com/600x400", // Placeholder image
+      },
+      {
+        title: "SEO-Optimized Content Platform",
+        description: "Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim.",
+        image: "https://via.placeholder.com/600x400", // Placeholder image
+      },
+    ],
   },
+
+  devops: {
+    heroImg: "https://via.placeholder.com/1200x600", // Placeholder image
+    title: "Web & CMS Development",
+    subTitle: "Custom Websites & Content Management Solutions",
+    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam.",
+    statsHeader: "The Impact of Web & CMS Solutions",
+    statsText: [
+      { value: 35, label: "Lorem ipsum dolor sit amet" },
+      { value: 40, label: "Consectetur adipiscing elit" },
+      { value: 25, label: "Integer nec odio. Praesent libero" },
+    ],
+    useCases: [
+      {
+        title: "Scalable E-commerce Platform",
+        description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam.",
+        image: "https://via.placeholder.com/600x400", // Placeholder image
+      },
+      {
+        title: "Corporate Workflow Automation",
+        description: "Suspendisse potenti. Ut fringilla. Suspendisse potenti. Fusce ac felis sit amet ligula pharetra condimentum.",
+        image: "https://via.placeholder.com/600x400", // Placeholder image
+      },
+      {
+        title: "SEO-Optimized Content Platform",
+        description: "Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim.",
+        image: "https://via.placeholder.com/600x400", // Placeholder image
+      },
+    ],
+  },
+
+  blockchaindev: {
+    heroImg: "https://via.placeholder.com/1200x600", // Placeholder image
+    title: "Web & CMS Development",
+    subTitle: "Custom Websites & Content Management Solutions",
+    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam.",
+    statsHeader: "The Impact of Web & CMS Solutions",
+    statsText: [
+      { value: 35, label: "Lorem ipsum dolor sit amet" },
+      { value: 40, label: "Consectetur adipiscing elit" },
+      { value: 25, label: "Integer nec odio. Praesent libero" },
+    ],
+    useCases: [
+      {
+        title: "Scalable E-commerce Platform",
+        description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam.",
+        image: "https://via.placeholder.com/600x400", // Placeholder image
+      },
+      {
+        title: "Corporate Workflow Automation",
+        description: "Suspendisse potenti. Ut fringilla. Suspendisse potenti. Fusce ac felis sit amet ligula pharetra condimentum.",
+        image: "https://via.placeholder.com/600x400", // Placeholder image
+      },
+      {
+        title: "SEO-Optimized Content Platform",
+        description: "Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim.",
+        image: "https://via.placeholder.com/600x400", // Placeholder image
+      },
+    ],
+  },
+
+  sfsolutions: {
+    heroImg: "https://via.placeholder.com/1200x600", // Placeholder image
+    title: "Web & CMS Development",
+    subTitle: "Custom Websites & Content Management Solutions",
+    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam.",
+    statsHeader: "The Impact of Web & CMS Solutions",
+    statsText: [
+      { value: 35, label: "Lorem ipsum dolor sit amet" },
+      { value: 40, label: "Consectetur adipiscing elit" },
+      { value: 25, label: "Integer nec odio. Praesent libero" },
+    ],
+    useCases: [
+      {
+        title: "Scalable E-commerce Platform",
+        description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam.",
+        image: "https://via.placeholder.com/600x400", // Placeholder image
+      },
+      {
+        title: "Corporate Workflow Automation",
+        description: "Suspendisse potenti. Ut fringilla. Suspendisse potenti. Fusce ac felis sit amet ligula pharetra condimentum.",
+        image: "https://via.placeholder.com/600x400", // Placeholder image
+      },
+      {
+        title: "SEO-Optimized Content Platform",
+        description: "Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim.",
+        image: "https://via.placeholder.com/600x400", // Placeholder image
+      },
+    ],
+  },
+
+  aiml: {
+    heroImg: "https://via.placeholder.com/1200x600", // Placeholder image
+    title: "Web & CMS Development",
+    subTitle: "Custom Websites & Content Management Solutions",
+    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam.",
+    statsHeader: "The Impact of Web & CMS Solutions",
+    statsText: [
+      { value: 35, label: "Lorem ipsum dolor sit amet" },
+      { value: 40, label: "Consectetur adipiscing elit" },
+      { value: 25, label: "Integer nec odio. Praesent libero" },
+    ],
+    useCases: [
+      {
+        title: "Scalable E-commerce Platform",
+        description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam.",
+        image: "https://via.placeholder.com/600x400", // Placeholder image
+      },
+      {
+        title: "Corporate Workflow Automation",
+        description: "Suspendisse potenti. Ut fringilla. Suspendisse potenti. Fusce ac felis sit amet ligula pharetra condimentum.",
+        image: "https://via.placeholder.com/600x400", // Placeholder image
+      },
+      {
+        title: "SEO-Optimized Content Platform",
+        description: "Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim.",
+        image: "https://via.placeholder.com/600x400", // Placeholder image
+      },
+    ],
+  },
+
+  iot: {
+    heroImg: "https://via.placeholder.com/1200x600", // Placeholder image
+    title: "Web & CMS Development",
+    subTitle: "Custom Websites & Content Management Solutions",
+    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam.",
+    statsHeader: "The Impact of Web & CMS Solutions",
+    statsText: [
+      { value: 35, label: "Lorem ipsum dolor sit amet" },
+      { value: 40, label: "Consectetur adipiscing elit" },
+      { value: 25, label: "Integer nec odio. Praesent libero" },
+    ],
+    useCases: [
+      {
+        title: "Scalable E-commerce Platform",
+        description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam.",
+        image: "https://via.placeholder.com/600x400", // Placeholder image
+      },
+      {
+        title: "Corporate Workflow Automation",
+        description: "Suspendisse potenti. Ut fringilla. Suspendisse potenti. Fusce ac felis sit amet ligula pharetra condimentum.",
+        image: "https://via.placeholder.com/600x400", // Placeholder image
+      },
+      {
+        title: "SEO-Optimized Content Platform",
+        description: "Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim.",
+        image: "https://via.placeholder.com/600x400", // Placeholder image
+      },
+    ],
+  },
+
+  gamedev: {
+    heroImg: "https://via.placeholder.com/1200x600", // Placeholder image
+    title: "Web & CMS Development",
+    subTitle: "Custom Websites & Content Management Solutions",
+    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam.",
+    statsHeader: "The Impact of Web & CMS Solutions",
+    statsText: [
+      { value: 35, label: "Lorem ipsum dolor sit amet" },
+      { value: 40, label: "Consectetur adipiscing elit" },
+      { value: 25, label: "Integer nec odio. Praesent libero" },
+    ],
+    useCases: [
+      {
+        title: "Scalable E-commerce Platform",
+        description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam.",
+        image: "https://via.placeholder.com/600x400", // Placeholder image
+      },
+      {
+        title: "Corporate Workflow Automation",
+        description: "Suspendisse potenti. Ut fringilla. Suspendisse potenti. Fusce ac felis sit amet ligula pharetra condimentum.",
+        image: "https://via.placeholder.com/600x400", // Placeholder image
+      },
+      {
+        title: "SEO-Optimized Content Platform",
+        description: "Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim.",
+        image: "https://via.placeholder.com/600x400", // Placeholder image
+      },
+    ],
+  },
+
 };
 
 const Services = () => {
@@ -115,32 +341,32 @@ const Services = () => {
     {
       icon: industries1,
       title: "Education",
-      description: "Transform learning experiences with interactive and immersive technologies",
+      description: "Shaping the future, one institution at a time with innovation and immersive learning.",
     },
     {
       icon: industries2,
       title: "Healthcare",
-      description: "Enhance patient care and medical training through innovative XR solutions",
+      description: "Smart, fast, and innovative apps designed to enhance patient care.",
     },
     {
       icon: industries3,
       title: "Real Estate",
-      description: "Provide virtual property tours and immersive real estate experiences",
+      description: "Simplify and enhance your real estate operations with our cutting-edge solutions.",
     },
     {
       icon: industries4,
-      title: "Manufacturing",
-      description: "Streamline production and training with industrial XR applications",
+      title: "Logistics",
+      description: "Streamline your supply chain for maximum efficiency and growth.",
     },
     {
       icon: industries5,
       title: "Retail",
-      description: "Revolutionize shopping with AR-driven retail and virtual showrooms",
+      description: "Transform shopping experiences with seamless, omnichannel retail solutions.",
     },
     {
       icon: industries6,
-      title: "Finance & Banking",
-      description: "Leverage XR for data visualization, training, and financial simulations",
+      title: "Fintech",
+      description: "Powerful, scalable technology solutions driving innovation in financial services.",
     },
   ];
 
@@ -178,7 +404,7 @@ const Services = () => {
         component="section"
         sx={{
           position: "relative",
-          px: { xs: 3, sm: 7.5, md: 11, lg: 12, xl: 16 },
+          px: { xs: 3, sm: 7.5, md: 11, lg: 12, xl: 23.5 },
           py: { xs: 4, md: 5, lg: 8 },
           backgroundImage: `url(${data.heroImg})`,
           backgroundSize: "cover",
@@ -327,114 +553,115 @@ const Services = () => {
 
           {data.useCases.map((useCase, index) => (
             <Box
-            key={index}
-            sx={{
-              display: "flex",
-              flexDirection: { xs: "column", md: index % 2 === 0 ? "row" : "row-reverse" },
-              alignItems: "center",
-              justifyContent: "space-between",
-              maxWidth: "1485px",
-              mx: "auto",
-              p: { xs: 4, md: 10.5, lg: 12, xl: 12 },
-              my: 8,
-              borderRadius: 2,
-              gap: { xs: 3, md: 10 },
-              position: "relative",
-              overflow: "hidden"
-            }}
-          >
-            {/* Text Section */}
-            <motion.div
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: false, amount: 0.3 }}
-              variants={fadeInUp}
-              style={{ overflow: "hidden" }}
+              key={index}
+              sx={{
+                display: "flex",
+                flexDirection: { xs: "column", md: index % 2 === 0 ? "row" : "row-reverse" },
+                alignItems: "center",
+                justifyContent: "space-between",
+                maxWidth: "1485px",
+                mx: "auto",
+                py: { xs: 4 },
+                px: { xs: 4, md: 10.5, lg: 12, xl: 24 },
+                my: 8,
+                borderRadius: 2,
+                gap: { xs: 3, md: 10 },
+                position: "relative",
+                overflow: "hidden"
+              }}
             >
-              <Box
-                sx={{
-                  flex: 1,
-                  textAlign: { xs: "center", md: "left" },
-                  px: { xs: 2, md: 0 },
-                }}
+              {/* Text Section */}
+              <motion.div
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: false, amount: 0.3 }}
+                variants={fadeInUp}
+                style={{ overflow: "hidden" }}
               >
                 <Box
                   sx={{
-                    width: "50px",
-                    height: "4px",
-                    backgroundColor: "#00C8FF",
-                    mb: 1.5,
-                    mx: { xs: "auto", md: 0 },
-                  }}
-                />
-                <Typography
-                  variant="h4"
-                  sx={{
-                    fontWeight: "bold",
-                    mb: 3,
-                    fontSize: { xs: "24px", sm: "28px", md: "32px", lg: "36px" },
+                    flex: 1,
+                    textAlign: { xs: "center", md: "left" },
+                    px: { xs: 2, md: 0 },
                   }}
                 >
-                  {useCase.title}
-                </Typography>
-                <Typography
-                  variant="body1"
-                  sx={{
-                    lineHeight: 1.8,
-                    fontSize: { xs: "14px", sm: "16px", md: "18px" },
-                  }}
-                >
-                  {useCase.description}
-                </Typography>
-              </Box>
-            </motion.div>
+                  <Box
+                    sx={{
+                      width: "50px",
+                      height: "4px",
+                      backgroundColor: "#00C8FF",
+                      mb: 1.5,
+                      mx: { xs: "auto", md: 0 },
+                    }}
+                  />
+                  <Typography
+                    variant="h4"
+                    sx={{
+                      fontWeight: "bold",
+                      mb: 3,
+                      fontSize: { xs: "24px", sm: "28px", md: "32px", lg: "36px" },
+                    }}
+                  >
+                    {useCase.title}
+                  </Typography>
+                  <Typography
+                    variant="body1"
+                    sx={{
+                      lineHeight: 1.8,
+                      fontSize: { xs: "14px", sm: "16px", md: "18px" },
+                    }}
+                  >
+                    {useCase.description}
+                  </Typography>
+                </Box>
+              </motion.div>
 
-            {/* Image Section */}
-            <motion.div
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: false, amount: 0.3 }}
-              variants={slideIn(index % 2 === 0 ? "right" : "left")}
-              style={{ overflow: "hidden" }}
-            >
-              <Box
-                sx={{
-                  position: "relative",
-                  width: { xs: "100%", md: "100%" },
-                  height: "auto",
-                  mt: { xs: 4, md: 0 },
-                  "&::before": {
-                    content: '""',
-                    position: "absolute",
-                    top: 0,
-                    left: index % 2 === 0 ? "0" : "auto",
-                    right: index % 2 === 0 ? "auto" : "0",
-                    width: "14%",
-                    height: "100%",
-                    background: index % 2 === 0
-                      ? "linear-gradient(to right, #242424 0%, rgba(36, 36, 36, 0) 100%)"
-                      : "linear-gradient(to left, #242424 0%, rgba(36, 36, 36, 0) 100%)",
-                    zIndex: 2,
-                  },
-                }}
+              {/* Image Section */}
+              <motion.div
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: false, amount: 0.3 }}
+                variants={slideIn(index % 2 === 0 ? "right" : "left")}
+                style={{ overflow: "hidden" }}
               >
                 <Box
-                  component="img"
-                  src={useCase.image}
-                  alt={useCase.title}
                   sx={{
-                    width: "100%", 
-                    height: "auto", 
-                    objectFit: "cover", 
-                    display: "block",
                     position: "relative",
-                    zIndex: 1,
+                    width: { xs: "100%", md: "100%" },
+                    height: "auto",
+                    mt: { xs: 4, md: 0 },
+                    "&::before": {
+                      content: '""',
+                      position: "absolute",
+                      top: 0,
+                      left: index % 2 === 0 ? "0" : "auto",
+                      right: index % 2 === 0 ? "auto" : "0",
+                      width: "14%",
+                      height: "100%",
+                      background: index % 2 === 0
+                        ? "linear-gradient(to right, #242424 0%, rgba(36, 36, 36, 0) 100%)"
+                        : "linear-gradient(to left, #242424 0%, rgba(36, 36, 36, 0) 100%)",
+                      zIndex: 2,
+                    },
                   }}
-                />
+                >
+                  <Box
+                    component="img"
+                    src={useCase.image}
+                    alt={useCase.title}
+                    sx={{
+                      width: "100%",
+                      height: "auto",
+                      objectFit: "cover",
+                      display: "block",
+                      position: "relative",
+                      zIndex: 1,
+                    }}
+                  />
 
-              </Box>
-            </motion.div>
-          </Box>
+                </Box>
+              </motion.div>
+            </Box>
 
           ))}
         </Box>
@@ -463,7 +690,7 @@ const Services = () => {
               alignItems: "center",
               gap: { xs: 2, sm: 4, md: 6 },
               flexWrap: "wrap",
-              px: { xs: 2, sm: 4, md: 6 },
+              px: { xs: 2, sm: 4, md: 5, lg: 6, xl: 7 },
             }}
           >
             {logos.map((logo, index) => (
@@ -492,7 +719,7 @@ const Services = () => {
           flexDirection: { xs: "column", md: "row" },
           justifyContent: "space-between",
           alignItems: "center",
-          px: { xs: 2, sm: 6, md: 12 },
+          px: { xs: 2, sm: 6, md: 11, lg: 12, xl: 24 },
           py: { xs: 3, md: 6 },
           textAlign: { xs: "center", md: "left" },
           gap: { xs: 3, md: 0 },
@@ -534,75 +761,82 @@ const Services = () => {
 
       {/* projects */}
       <Box sx={{ backgroundColor: "#121212", py: 6, px: { xs: 2, sm: 4, md: 6 }, position: "relative" }}>
-        <Box sx={{ px: 6, py: 3 }}>
+        <Box sx={{
+          px: { xs: "auto", sm: 2.5, md: 5, lg: 5.7, xl: 18 },
+          py: 3
+        }}
+        >
           <Typography variant='h4'>
             Check Our Projects
           </Typography>
         </Box>
-        <Swiper
-          modules={[Navigation]}
-          spaceBetween={20}
-          slidesPerView={1}
-          loop={true}
-          navigation={{
-            prevEl: ".prev-button",
-            nextEl: ".next-button",
-          }}
-          breakpoints={{
-            768: { slidesPerView: 2 },
-          }}
-          style={{ maxWidth: "1200px", margin: "auto", overflow: "hidden" }}
-        >
-          {projects.map((project, index) => (
-            <SwiperSlide key={index}>
-              <Box
-                sx={{
-                  position: "relative",
-                  borderRadius: "20px",
-                  overflow: "hidden",
-                  cursor: "pointer",
-                  width: "100%",
-                }}
-              >
-                <img
-                  src={project.image}
-                  alt={project.title}
-                  style={{
-                    width: "100%",
-                    height: "auto",
-                    display: "block",
-                    transition: "all 0.3s ease-in-out",
-                  }}
-                />
+        <Box sx={{ px: { xs: "auto", sm: 2.9, md: 4.5, lg: 6, xl: 18 } }}>
+          <Swiper
+            modules={[Navigation]}
+            spaceBetween={20}
+            slidesPerView={1}
+            loop={true}
+            navigation={{
+              prevEl: ".prev-button",
+              nextEl: ".next-button",
+            }}
+            breakpoints={{
+              768: { slidesPerView: 2 },
+            }}
+            style={{ maxWidth: "1350px", margin: "auto", overflow: "hidden" }}
+          >
+            {projects.map((project, index) => (
+              <SwiperSlide key={index}>
                 <Box
                   sx={{
-                    position: "absolute",
-                    bottom: { xs: 10, sm: 15, md: 20 },
-                    left: { xs: 10, sm: 15, md: 20 },
-                    color: "white",
+                    position: "relative",
+                    borderRadius: "20px",
+                    overflow: "hidden",
+                    cursor: "pointer",
+                    width: "100%",
                   }}
                 >
-                  <Typography variant="h6" sx={{ fontWeight: "bold", fontSize: { xs: "14px", md: "18px" } }}>
-                    {project.title}
-                  </Typography>
-                  <Typography
+                  <img
+                    src={project.image}
+                    alt={project.title}
+                    style={{
+                      width: "100%",
+                      height: "auto",
+                      display: "block",
+                      transition: "all 0.3s ease-in-out",
+                    }}
+                  />
+                  <Box
                     sx={{
-                      color: "#00C8FF",
-                      display: "flex",
-                      alignItems: "center",
-                      fontSize: { xs: "12px", md: "16px" },
+                      position: "absolute",
+                      bottom: { xs: 10, sm: 15, md: 20 },
+                      left: { xs: 10, sm: 15, md: 20 },
+                      color: "white",
                     }}
                   >
-                    SEE PROJECT &nbsp; →
-                  </Typography>
+                    <Typography variant="h6" sx={{ fontWeight: "bold", fontSize: { xs: "14px", md: "18px" } }}>
+                      {project.title}
+                    </Typography>
+                    <Typography
+                      sx={{
+                        color: "#00C8FF",
+                        display: "flex",
+                        alignItems: "center",
+                        fontSize: { xs: "12px", md: "16px" },
+                      }}
+                    >
+                      SEE PROJECT &nbsp; →
+                    </Typography>
+                  </Box>
                 </Box>
-              </Box>
-            </SwiperSlide>
-          ))}
-        </Swiper>
+              </SwiperSlide>
+            ))}
+          </Swiper>
+        </Box>
+
 
         {/* Navigation Buttons */}
-        <Box sx={{ display: "flex", justifyContent: "center", gap: 2, mt: 3 }}>
+        <Box sx={{ display: "flex", justifyContent: { md: "center", lg: "right" }, gap: 2, mt: 3, pr: { md: 0, lg: 6, xl: 18 } }}>
           <Button
             className="prev-button"
             sx={{
@@ -675,16 +909,40 @@ const Services = () => {
           </Typography>
         </Box>
 
-        <Box sx={{ display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center", py: 4 }}>
+        <Box
+          sx={{
+            width: "100%",
+            maxWidth: "100%",
+            boxSizing: "border-box",
+            overflowX: "hidden",
+            display: "flex",
+            flexDirection: "column",
+            justifyContent: "center",
+            alignItems: "center",
+            py: 4,
+            px: { xs: 2, sm: 6, lg: 12, xl: 21 },
+            margin: "0 auto",
+          }}
+        >
           <Box
             sx={{
-              display: "flex",
+              backgroundColor: "#121212",
+              py: 6,
+              display: "grid",
+              gridTemplateColumns: {
+                xs: "1fr",
+                sm: "1fr 1fr",
+                md: "1fr 1fr",
+                lg: "1fr 1fr 1fr"
+              },
+              gap: { xs: 2, md: 3, lg: 4 },
+              width: "100%",
+              maxWidth: "1400px",
+              textAlign: "center",
+              margin: "0 auto",
+              justifyItems: "center",
               justifyContent: "center",
               alignItems: "center",
-              flexWrap: "wrap",
-              gap: { xs: 2, md: 4 },
-              width: "100%",
-              textAlign: "center",
             }}
           >
             {industries.map((industry, index) => (
@@ -832,7 +1090,7 @@ const Services = () => {
           flexDirection: { xs: "column", md: "row" },
           flexWrap: "wrap",
           py: 6,
-          px: { xs: 2, md: 12, lg: 12, xl: 14 },
+          px: { xs: 2, md: 11, lg: 12, xl: 24 },
           gap: { xs: 4, md: 6 },
         }}
       >
