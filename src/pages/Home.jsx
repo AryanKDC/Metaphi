@@ -17,12 +17,12 @@ import logo3 from "../images/partner-3.png";
 import logo4 from "../images/partner-4.png";
 import logo5 from "../images/partner-5.png";
 import logo6 from "../images/partner-9.png";
-import services1 from "../images/vr.svg";
-import services2 from "../images/ar.svg";
+import services1 from "../images/ecommerce.svg";
+import services2 from "../images/devops.svg";
 import services3 from "../images/metaverse.svg";
 import services4 from "../images/webArXr.svg";
 import services5 from "../images/intelligent.svg";
-import services6 from "../images/3dmodeling.svg";
+import services6 from "../images/iot.svg";
 import services7 from "../images/gamedev.svg";
 import services8 from "../images/mobiledev.svg";
 import services9 from "../images/webdeb.svg";
@@ -151,50 +151,51 @@ const Home = () => {
 
     const services = [
         {
+            icon: services8,
+            title: "Mobile App Development",
+            description: "Build intuitive and feature-rich mobile applications.",
+        },
+        {
+            icon: services9,
+            title: "Web and CMS Development",
+            description: "Create scalable and robust web and content management solutions.",
+        },
+        {
             icon: services1,
-            title: "Virtual Reality",
-            description: "Immerse your business in cutting-edge VR solutions",
+            title: "E-commerce Development",
+            description: "Build secure, and scalable online stores with seamless payment integration.",
         },
         {
             icon: services2,
-            title: "Augmented Reality",
-            description: "Elevate your customer experiences with AR",
+            title: "DevOps Services",
+            description: " Streamline software delivery with CI/CD, and efficient infrastructure management.",
         },
         {
             icon: services3,
-            title: "Metaverse Development",
-            description: "Build immersive digital twins and metaverse experiences",
+            title: "Blockchain Development",
+            description: "Develop secure blockchain solutions for transparency and efficiency.",
         },
         {
             icon: services4,
-            title: "WebXR & WebAR Development",
-            description: "Create engaging web-based XR and AR experiences",
+            title: "Salesforce Solutions",
+            description: "Optimize customer relationships with tailored Salesforce CRM implementation.",
         },
         {
             icon: services5,
-            title: "Intelligent XR Solutions",
-            description: "Integrate AI-powered XR solutions for enhanced interactivity",
+            title: "AI & Machine Learning",
+            description: "Leverage intelligent algorithms for automation, predictive analytics, and data-driven insights.",
         },
         {
             icon: services6,
-            title: "3D Modeling & Animation",
-            description: "Craft stunning 3D assets and animations for various applications",
+            title: "IoT & Embedded Systems",
+            description: " Connect smart devices with cutting-edge IoT solutions for real-time monitoring.",
         },
         {
             icon: services7,
             title: "Game Development",
             description: "Develop interactive and immersive games across platforms",
         },
-        {
-            icon: services8,
-            title: "Mobile App Development",
-            description: "Build intuitive and feature-rich mobile applications",
-        },
-        {
-            icon: services9,
-            title: "Web and CMS Development",
-            description: "Create scalable and robust web and content management solutions",
-        },
+
     ];
 
     const projects = [
@@ -246,34 +247,35 @@ const Home = () => {
         {
             icon: industries1,
             title: "Education",
-            description: "Transform learning experiences with interactive and immersive technologies",
+            description: "Shaping the future, one institution at a time with innovation and immersive learning.",
         },
         {
             icon: industries2,
             title: "Healthcare",
-            description: "Enhance patient care and medical training through innovative XR solutions",
+            description: "Smart, fast, and innovative apps designed to enhance patient care.",
         },
         {
             icon: industries3,
             title: "Real Estate",
-            description: "Provide virtual property tours and immersive real estate experiences",
+            description: "Simplify and enhance your real estate operations with our cutting-edge solutions.",
         },
         {
             icon: industries4,
-            title: "Manufacturing",
-            description: "Streamline production and training with industrial XR applications",
+            title: "Logistics",
+            description: "Streamline your supply chain for maximum efficiency and growth.",
         },
         {
             icon: industries5,
             title: "Retail",
-            description: "Revolutionize shopping with AR-driven retail and virtual showrooms",
+            description: "Transform shopping experiences with seamless, omnichannel retail solutions.",
         },
         {
             icon: industries6,
-            title: "Finance & Banking",
-            description: "Leverage XR for data visualization, training, and financial simulations",
+            title: "Fintech",
+            description: "Powerful, scalable technology solutions driving innovation in financial services.",
         },
     ];
+
 
     const [hoveredIndex, setHoveredIndex] = useState(null);
 
@@ -285,7 +287,7 @@ const Home = () => {
             <Box
                 component="section"
                 sx={{
-                    px: { xs: 3, sm: 8, md: 11, lg: "95px", xl: "100px" },
+                    px: { xs: 3, sm: 8, md: 11, lg: "95px", xl: "190px" },
                     py: 10,
                     maxWidth: "1495px",
                     margin: "auto",
@@ -312,7 +314,7 @@ const Home = () => {
                         textAlign="left"
                         sx={{ fontSize: { xs: 33, sm: 38, md: 42 }, fontWeight: 600, py: 3 }}
                     >
-                        Where Creativity Meets <span className="gradientS">Immersion</span>
+                        Where Creativity Meets <span className="gradientS">Innovation</span>
                     </Typography>
 
                     <Typography
@@ -458,6 +460,7 @@ const Home = () => {
             <Box
                 sx={{
                     py: 9,
+                    px: { xs: "auto", sm: 3, md: 4, lg: 3, xl: 15 },
                     textAlign: "center",
                     display: "flex",
                     flexDirection: { xs: "column", md: "row" },
@@ -626,7 +629,7 @@ const Home = () => {
 
             </Box>
 
-            {/* how we help section */}
+            {/* services section */}
             <Box sx={{ backgroundColor: "#121212" }}>
                 <Box sx={{ paddingTop: 10 }}>
                     <Typography
@@ -655,20 +658,43 @@ const Home = () => {
                     </Typography>
                 </Box>
 
-                <Box sx={{ display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center", py: 4 }}>
+                <Box
+                    sx={{
+                        width: "100%",
+                        maxWidth: "100%",
+                        boxSizing: "border-box",
+                        overflowX: "hidden",
+                        display: "flex",
+                        flexDirection: "column",
+                        justifyContent: "center",
+                        alignItems: "center",
+                        py: 4,
+                        px: { xs: 2, sm: 6, lg: 12, xl: 21 },
+                        margin: "0 auto",
+                    }}
+                >
                     <Box
                         sx={{
                             backgroundColor: "#121212",
                             py: 6,
-                            display: "flex",
+                            display: "grid",
+                            gridTemplateColumns: {
+                                xs: "1fr",
+                                sm: "1fr 1fr",
+                                md: "1fr 1fr",
+                                lg: "1fr 1fr 1fr"
+                            },
+                            gap: { xs: 2, md: 3, lg: 4 },
+                            width: "100%",
+                            maxWidth: "1400px",
+                            textAlign: "center",
+                            margin: "0 auto",
+                            justifyItems: "center",
                             justifyContent: "center",
                             alignItems: "center",
-                            flexWrap: "wrap",
-                            gap: { xs: 2, md: 4 },
-                            width: "100%",
-                            textAlign: "center",
                         }}
                     >
+
                         {services.map((service, index) => (
                             <motion.div
                                 key={index}
@@ -833,90 +859,94 @@ const Home = () => {
                     Building the Future with Cutting-Edge Technology
                 </Typography>
 
-                <Box
-                    sx={{
-                        py: 6,
-                        px: { xs: 2, sm: 4, md: 6 },
-                        display: "flex",
-                        flexWrap: "wrap",
-                        justifyContent: "center",
-                        gap: 4,
-                    }}
-                >
-                    {projects.map((project, index) => (
-                        <Box
-                            key={index}
-                            sx={{
-                                width: { xs: "100%", sm: "80%", md: "350px", lg: "350px", xl: "420px" },
-                                display: "flex",
-                                justifyContent: "center",
-                            }}
-                        >
-                            <Card
+                <Box sx={{ width: "100%", overflowX: "hidden", overflowY: "hidden" }}>
+                    <Box
+                        sx={{
+                            py: 6,
+                            px: { xs: 2, sm: 4, md: 6, },
+                            display: "flex",
+                            flexWrap: "wrap",
+                            justifyContent: "center",
+                            gap: 4,
+                        }}
+                    >
+                        {projects.map((project, index) => (
+                            <Box
+                                key={index}
                                 sx={{
-                                    backgroundColor: "#181818",
-                                    borderRadius: "12px",
-                                    overflow: "hidden",
-                                    transition: "transform 0.3s ease-in-out",
-                                    "&:hover": { transform: "scale(1.02)", boxShadow: "0px 0px 15px rgba(0, 200, 255, 0.3)" },
+                                    width: { xs: "100%", sm: "80%", md: "350px", lg: "350px", xl: "425px" },
+                                    display: "flex",
+                                    justifyContent: "center",
+
                                 }}
                             >
-                                {/* Project Image */}
-                                <Box
+                                <Card
                                     sx={{
-                                        backgroundImage: `url(${project.image})`,
-                                        backgroundSize: "cover",
-                                        backgroundPosition: "center",
-                                        height: "200px",
-                                        borderRadius: "12px 12px 0 0",
+                                        backgroundColor: "#181818",
+                                        borderRadius: "12px",
+                                        overflow: "hidden",
+                                        transition: "transform 0.3s ease-in-out",
+                                        "&:hover": { transform: "scale(1.02)", boxShadow: "0px 0px 15px rgba(0, 200, 255, 0.3)" },
                                     }}
-                                />
-
-                                <CardContent sx={{ textAlign: "left", color: "white" }}>
-                                    {/* Title & Year */}
-                                    <Box sx={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
-                                        <Typography variant="h6" sx={{ fontWeight: "bold" }}>
-                                            {project.title}
-                                        </Typography>
-                                        <Typography variant="body2" sx={{ color: "#00C8FF" }}>
-                                            {project.year}
-                                        </Typography>
-                                    </Box>
-
-                                    {/* Category */}
-                                    <Typography variant="body2" sx={{ color: "#AAAAAA", mt: 1 }}>
-                                        Category {project.category}
-                                    </Typography>
-
-
-
-                                    {/* Description */}
-                                    <Typography variant="body2" sx={{ mt: 2 }}>
-                                        {project.description}
-                                    </Typography>
-
-                                    {/* View Details Button */}
-                                    <Button
-                                        disableRipple
+                                >
+                                    {/* Project Image */}
+                                    <Box
                                         sx={{
-                                            color: "#00C8FF",
-                                            mt: 2,
-                                            fontWeight: "bold",
-                                            display: "flex",
-                                            alignItems: "center",
-                                            "&:hover": { textDecoration: "underline", backgroundColor: "transparent" },
-                                            backgroundColor: "transparent",
+                                            backgroundImage: `url(${project.image})`,
+                                            backgroundSize: "cover",
+                                            backgroundPosition: "center",
+                                            height: "200px",
+                                            borderRadius: "12px 12px 0 0",
                                         }}
-                                        variant="text"
-                                    >
-                                        VIEW PROJECTS DETAILS
-                                        <FontAwesomeIcon icon={faArrowRight} style={{ marginLeft: "10px" }} />
-                                    </Button>
-                                </CardContent>
-                            </Card>
-                        </Box>
-                    ))}
+                                    />
+
+                                    <CardContent sx={{ textAlign: "left", color: "white" }}>
+                                        {/* Title & Year */}
+                                        <Box sx={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+                                            <Typography variant="h6" sx={{ fontWeight: "bold" }}>
+                                                {project.title}
+                                            </Typography>
+                                            <Typography variant="body2" sx={{ color: "#00C8FF" }}>
+                                                {project.year}
+                                            </Typography>
+                                        </Box>
+
+                                        {/* Category */}
+                                        <Typography variant="body2" sx={{ color: "#AAAAAA", mt: 1 }}>
+                                            Category {project.category}
+                                        </Typography>
+
+
+
+                                        {/* Description */}
+                                        <Typography variant="body2" sx={{ mt: 2 }}>
+                                            {project.description}
+                                        </Typography>
+
+                                        {/* View Details Button */}
+                                        <Button
+                                            disableRipple
+                                            sx={{
+                                                color: "#00C8FF",
+                                                mt: 2,
+                                                fontWeight: "bold",
+                                                display: "flex",
+                                                alignItems: "center",
+                                                "&:hover": { textDecoration: "underline", backgroundColor: "transparent" },
+                                                backgroundColor: "transparent",
+                                            }}
+                                            variant="text"
+                                        >
+                                            VIEW PROJECTS DETAILS
+                                            <FontAwesomeIcon icon={faArrowRight} style={{ marginLeft: "10px" }} />
+                                        </Button>
+                                    </CardContent>
+                                </Card>
+                            </Box>
+                        ))}
+                    </Box>
                 </Box>
+
                 <Link style={{ textDecoration: "none" }} to={'/industries'}>
                     <StyledButton />
                 </Link>
@@ -952,16 +982,40 @@ const Home = () => {
                     </Typography>
                 </Box>
 
-                <Box sx={{ display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center", py: 4 }}>
+                <Box
+                    sx={{
+                        width: "100%",
+                        maxWidth: "100%",
+                        boxSizing: "border-box",
+                        overflowX: "hidden",
+                        display: "flex",
+                        flexDirection: "column",
+                        justifyContent: "center",
+                        alignItems: "center",
+                        py: 4,
+                        px: { xs: 2, sm: 6, lg: 12, xl: 21 },
+                        margin: "0 auto",
+                    }}
+                >
                     <Box
                         sx={{
-                            display: "flex",
+                            backgroundColor: "#121212",
+                            py: 6,
+                            display: "grid",
+                            gridTemplateColumns: {
+                                xs: "1fr",
+                                sm: "1fr 1fr",
+                                md: "1fr 1fr",
+                                lg: "1fr 1fr 1fr"
+                            },
+                            gap: { xs: 2, md: 3, lg: 4 },
+                            width: "100%",
+                            maxWidth: "1400px",
+                            textAlign: "center",
+                            margin: "0 auto",
+                            justifyItems: "center",
                             justifyContent: "center",
                             alignItems: "center",
-                            flexWrap: "wrap",
-                            gap: { xs: 2, md: 4 },
-                            width: "100%",
-                            textAlign: "center",
                         }}
                     >
                         {industries.map((industry, index) => (
@@ -1109,7 +1163,7 @@ const Home = () => {
                     flexDirection: { xs: "column", md: "row" },
                     flexWrap: "wrap",
                     py: 6,
-                    px: { xs: 2, md: 12, lg: 12, xl: 14 },
+                    px: { xs: 2, md: 11, lg: 12, xl: 24 },
                     gap: { xs: 4, md: 6 },
                 }}
             >
