@@ -45,19 +45,19 @@ const industryData = {
     ],
     features: [
       {
-        title: "Immersive VR Educational Simulations",
+        title: "Immersive Learning Experiences",
         description:
-          "Enhance learning by simulating real-world scenarios, providing students with hands-on experience directly in the classroom.",
+          "Dive into complex concepts and real-world scenarios within a safe, controlled environment, allowing for deeper understanding, hands-on practice, and risk-free exploration.",
       },
       {
-        title: "Global VR Field Trips",
+        title: "Interactive Digital Lessons & Content",
         description:
-          "Expand horizons with virtual reality, taking students on captivating educational journeys around the world without leaving their seats.",
+          "Engage students with dynamic, adaptive content designed to match individual learning styles, ensuring a more personalized and effective learning experience.",
       },
       {
-        title: "Interactive AR-Assisted Learning",
+        title: "Access to simulations of places or concepts",
         description:
-          "Change education by bringing textbooks and learning materials to life with augmented reality, making lessons more engaging and memorable.",
+          "Gain immersive access to simulations of real-world locations and abstract concepts, enabling unparalleled learning experiences that were once out of reach.",
       },
     ],
 
@@ -69,7 +69,7 @@ const Industries = () => {
   const { industry } = useParams();
   const data = industryData[industry] || { title: "Not Found", description: "Page not available." };
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: false, margin: "-100px" });
+  const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   useEffect(() => {
     if (isInView && ref.current) {
@@ -247,40 +247,77 @@ const Industries = () => {
                   flexDirection: "column",
                   alignItems: "center",
                   textAlign: "center",
-                  flex: "1 1 400px",
-                  maxWidth: "420px",
-                  padding: { xs: 2, md: 3 },
+                  flex: { md: "1 1 200px", lg: "1 1 250px", xl: "1 1 340px" },
+                  maxWidth: "350px",
+                  padding: { xs: 2, md: 4 },
+                  background: "rgba(255, 255, 255, 0.05)",
+                  borderRadius: "16px",
+                  border: "1px solid rgba(255, 255, 255, 0.2)",
+                  boxShadow: "0 8px 24px rgba(0, 0, 0, 0.1)",
+                  transition: "transform 0.3s ease, box-shadow 0.3s ease",
 
-                  /** Add right and left borders for all except first & last items in each row **/
-
-                  borderLeft: { lg: index % 3 !== 0 ? "1px solid rgba(255,255,255,0.2)" : "none" },
-
-
-                  /** Add a bottom border for stacked layout on smaller screens **/
-                  borderBottom: { xs: "1px solid rgba(255,255,255,0.2)", lg: "none" },
+                  "&:hover": {
+                    boxShadow: "0 12px 30px rgba(255, 255, 255, 0.15)",
+                    border: "1px solid rgba(255, 255, 255, 0.3)",
+                  },
                 }}
               >
+                {/* Icon Wrapper (Scales down) */}
                 <Box
                   sx={{
                     display: "flex",
                     alignItems: "center",
                     justifyContent: "center",
-                    width: "64px",
-                    height: "64px",
-                    backgroundColor: "rgba(255,255,255,0.1)",
+                    width: { xs: "40px", sm: "50px", md: "60px" },
+                    height: { xs: "40px", sm: "50px", md: "60px" },
+                    background: "linear-gradient(135deg, rgba(255,255,255,0.2), rgba(255,255,255,0.05))",
                     borderRadius: "50%",
-                    marginBottom: 2,
+                    marginBottom: { xs: 1, md: 2 },
+                    boxShadow: "0 4px 12px rgba(255,255,255,0.1)",
                   }}
                 >
-                  <img src={benefit.icon} alt={benefit.title} style={{ width: "36px", height: "36px", objectFit: "contain", filter: "invert(1)" }} />
+                  <img
+                    src={benefit.icon}
+                    alt={benefit.title}
+                    style={{
+                      width: "70%",
+                      height: "70%",
+                      objectFit: "contain",
+                      filter: "invert(1)",
+                    }}
+                  />
                 </Box>
-                <Typography variant="h6" sx={{ fontWeight: "bold", fontSize: { xs: "16px", md: "20px" } }}>
+
+                {/* Title (Scales down) */}
+                <Typography
+                  variant="h6"
+                  sx={{
+                    fontWeight: "600",
+                    fontSize: { xs: "14px", sm: "16px", md: "18px", lg: "22px" },
+                    color: "rgba(255, 255, 255, 0.9)",
+                    textTransform: "uppercase",
+                    letterSpacing: "1px",
+                  }}
+                >
                   {benefit.title}
                 </Typography>
-                <Typography variant="body2" sx={{ fontSize: { xs: "14px", md: "16px" }, mt: 1 }}>
+
+                {/* Description (Scales down) */}
+                <Typography
+                  variant="body2"
+                  sx={{
+                    fontSize: { xs: "12px", sm: "14px", md: "16px" },
+                    mt: { xs: 0.5, md: 1 },
+                    color: "rgba(255, 255, 255, 0.7)",
+                    maxWidth: "85%",
+                  }}
+                >
                   {benefit.description}
                 </Typography>
               </Box>
+
+
+
             ))}
           </Box>
 
@@ -356,10 +393,11 @@ const Industries = () => {
           {/* Feature Cards */}
           <Box
             sx={{
-              display: "flex",
-              flexWrap: "wrap",
-              justifyContent: "center",
+              display: "grid",
+              gridTemplateColumns: { xs: "1fr", sm: "1fr 1fr", md: "repeat(3, 1fr)" },
               gap: { xs: 2, md: 3 },
+              justifyContent: "center",
+              alignItems: "center",
             }}
           >
             {data.features.map((feature, index) => (
@@ -368,11 +406,16 @@ const Industries = () => {
                 sx={{
                   backgroundColor: "#000",
                   padding: { xs: 3, md: 4 },
-                  flex: "1 1 300px", // Responsive width
-                  maxWidth: "350px",
                   borderRadius: "8px",
-                  textAlign: "left",
+                  textAlign: { xs: "center", md: "left" },
                   boxShadow: "0px 0px 10px rgba(255,255,255,0.1)",
+                  minHeight: { xs: "auto", md: "250px" },
+                  display: "flex",
+                  flexDirection: "column",
+                  justifyContent: "space-between",
+                  alignSelf: "stretch",
+                  maxWidth: { xs: "90%", sm: "100%" },
+                  margin: { xs: "0 auto", sm: "unset" },
                 }}
               >
                 {/* Title with Underline */}
@@ -398,6 +441,8 @@ const Industries = () => {
           </Box>
         </Container>
       </Box>
+
+
     </>
   );
 }
