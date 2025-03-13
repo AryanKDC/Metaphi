@@ -24,10 +24,10 @@ const StyledWrapper = styled.div`
   .cta span {
     padding-bottom: 7px;
     letter-spacing: 4px;
-    font-size: 18px; /* ✅ Increased font size */
+    font-size: 18px; 
     padding-right: 15px;
     text-transform: uppercase;
-    font-weight: bold; /* ✅ Makes text more readable */
+    font-weight: bold;  
   }
 
   .cta svg {
@@ -35,7 +35,7 @@ const StyledWrapper = styled.div`
     transition: all 0.3s ease;
     fill: #19bbc2;
     stroke: #19bbc2;
-    width: 35px; /* ✅ Increase SVG size if needed */
+    width: 35px; 
   }
 
   .cta:hover svg {
@@ -50,7 +50,7 @@ const StyledWrapper = styled.div`
     position: relative;
     color: #19bbc2;
     padding-bottom: 20px;
-    font-size: 18px; /* ✅ Increase hover text size */
+    font-size: 18px; 
   }
 
   .hover-underline-animation:after {
